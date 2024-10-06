@@ -1,0 +1,63 @@
+#brschm_event_meta_box {
+    display: none;
+}
+
+/* Events Meta Box Styles */
+
+/* Style for the event meta box container */
+#brschm_event_meta_box {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+/* Labels for event fields */
+#brschm_event_meta_box label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Input fields for event meta box */
+#brschm_event_meta_box input[type="text"],
+#brschm_event_meta_box input[type="date"],
+#brschm_event_meta_box input[type="email"],
+#brschm_event_meta_box textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Make the event fields responsive */
+@media screen and (max-width: 600px) {
+    #brschm_event_meta_box input[type="text"],
+    #brschm_event_meta_box input[type="date"],
+    #brschm_event_meta_box input[type="email"],
+    #brschm_event_meta_box textarea {
+        width: 100%;
+    }
+}
+
+/* Style for error or validation messages (if any) */
+#brschm_event_meta_box .error {
+    color: #e74c3c;
+    font-size: 12px;
+}
+
+/* Button styling */
+#brschm_event_meta_box .button {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#brschm_event_meta_box .button:hover {
+    background-color: #006799;
+}
