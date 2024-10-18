@@ -10,7 +10,7 @@
 **License URI**: https://www.gnu.org/licenses/gpl-2.0.html  
 **GitHub Repository**: https://github.com/brs-conventions-official/RC_wordpress_plugin  
 **Plugin URI**: https://brschm.astarte.io/  
-**Author**: BRS Secretariat IT Team , vincent.lalieu@un.org 
+**Author**: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent.lalieu@un.org 
 **Version**: 1.0
 
 ## Description
