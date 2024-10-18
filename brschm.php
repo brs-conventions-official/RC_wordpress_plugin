@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BRSCHM
  * Description: Adds predefined tags for CHM, Documents, Topics, and Chemicals to posts, with popups for selection.
- * Version: 3.1
+ * Version: 3.4
  * Author: BRS Secretariat 
  */
 
@@ -14,19 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/post-odata-exposer.php';
 
+// Include attachments special field for language
+require_once plugin_dir_path( __FILE__ ) . 'includes/attachments.php';
 
-// Register OData routes for v1 and v4
+// Register routes for OData version 4
 function odata_register_routes() {
-    register_rest_route('odata/v1', '/metadata', [
-        'methods' => 'GET',
-        'callback' => 'odata_get_metadata_v1',
-        'permission_callback' => '__return_true',
-    ]);
-    register_rest_route('odata/v1', '/posts', [
-        'methods' => 'GET',
-        'callback' => 'odata_get_posts_v1',
-        'permission_callback' => '__return_true',
-    ]);
 
     register_rest_route('odata/v4', '/metadata', [
         'methods' => 'GET',
