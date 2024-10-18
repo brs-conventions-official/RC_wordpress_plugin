@@ -30,6 +30,9 @@ This plugin also allows the BRS Regional Centres to expose specific WordPress po
 
 ### Setting a Post as a **Document** and Selecting Topics and Chemicals
 
+
+![at the bottom left of the screen](https://github.com/brs-conventions-official/RC_wordpress_plugin/assets/plugintool.png)
+
 To expose a WordPress post as a **Document** using the BRSCHM plugin:
 
 1. **Select Post Type as Document**:
@@ -202,3 +205,6 @@ The following metadata is exposed by the plugin for each post:
 ## License
 
 This plugin is licensed under the GPLv2 or later license. For more details, visit the [GPLv2 license](https://www.gnu.org/licenses/gpl-2.0.html).
+
+
+[def]: assets/plugintool.png
