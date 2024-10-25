@@ -131,23 +131,33 @@ function brschm_save_topics_chemicals() {
         wp_send_json_error( array( 'message' => 'Permission denied' ) );
     }
 
-    // Save the selected topics and chemicals
-    if ( isset( $_POST['topics'] ) ) {
-        update_post_meta( $post_id, '_brschm_topics', $_POST['topics'] );
-    }
+    // Retrieve topics and chemicals from the request, default to empty arrays if not set
+    $selected_topics = isset( $_POST['topics'] ) ? $_POST['topics'] : [];
+    $selected_chemicals = isset( $_POST['chemicals'] ) ? $_POST['chemicals'] : [];
 
-    if ( isset( $_POST['chemicals'] ) ) {
-        update_post_meta( $post_id, '_brschm_chemicals', $_POST['chemicals'] );
-    }
+    // Update meta fields for topics and chemicals
+    update_post_meta( $post_id, '_brschm_topics', $selected_topics );
+    update_post_meta( $post_id, '_brschm_chemicals', $selected_chemicals );
 
-    // Combine Topics and Chemicals for tags
-    $tags = array_merge( $_POST['topics'], $_POST['chemicals'] );
+    // Combine selected topics and chemicals to form the new tags list
+    $new_tags = array_merge( $selected_topics, $selected_chemicals );
 
-    // Set the post tags
-    wp_set_post_tags( $post_id, $tags, true );
+    // Retrieve current tags on the post to preserve non-topic and non-chemical tags
+    $current_tags = wp_get_post_tags( $post_id, array( 'fields' => 'names' ) );
+
+    // Preserve existing tags that are not related to topics or chemicals
+    $preserved_tags = array_diff( $current_tags, get_post_meta( $post_id, '_brschm_topics', true ) ?: [], get_post_meta( $post_id, '_brschm_chemicals', true ) ?: [] );
+
+    // Merge preserved tags with the new topics and chemicals
+    $final_tags = array_merge( $preserved_tags, $new_tags );
+
+    // Update the post tags without appending (overwrite mode)
+    wp_set_post_tags( $post_id, $final_tags, false );
 
     wp_send_json_success();
 }
+
+
 add_action( 'wp_ajax_save_topics_chemicals', 'brschm_save_topics_chemicals' );
 
 
