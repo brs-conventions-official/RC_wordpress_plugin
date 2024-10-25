@@ -15,9 +15,23 @@
 
 ## Description
 
-The **BRSCHM plugin** allows BRS Regional Centers using WordPress to select their posts for exposure as **Documents**, **News**, **Events**, or **Contacts** to the Central Clearing House Mechanism (CHM) Regional Center Portal at the BRS Secretariat.
+The **BRSCHM plugin** is designed for Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers using WordPress. It allows centers to selectively share posts as **Documents**, **News**, **Events**, or **Contacts** with the Central Clearing House Mechanism (CHM) Regional Center Portal at the BRS Secretariat.
 
-This plugin also allows the BRS Regional Centres to expose specific WordPress posts via OData v4 as **Documents**, **News**, **Events**, or **Contacts** to share with the Central Clearing House Mechanism (CHM) Regional Center Portal at the BRS Secretariat. Posts can be tagged accordingly and shared through OData for integration with the CHM system.
+### Key Features
+
+- **Selective Content Sharing**: Posts can be categorized as **Documents**, **News**, **Events**, or **Contacts**. This classification allows for relevant information to be easily shared with the CHM Portal.
+  
+- **OData v4 Integration**: Posts are exposed through **OData v4**, enabling external systems like the CHM Portal to query and display regional center content. Posts can be filtered by tags, custom fields, and attachment types (e.g., PDFs, YouTube videos).
+
+- **Documents**: Posts with official publications, reports, and related materials tagged and categorized with topics and chemicals for easy identification.
+  
+- **News**: Posts sharing announcements, updates, and developments relevant to the BRS Conventions.
+  
+- **Events**: Posts promoting conferences, workshops, and other events, including details such as event date, location, and contact information.
+  
+- **Contacts**: Posts containing key contact information for stakeholders involved in the BRS Conventions.
+
+By integrating the **BRSCHM plugin**, regional centers ensure that their posts are automatically available and queryable by the Central CHM Portal, creating a streamlined communication flow and helping to foster better collaboration across the BRS network.
 
 ### Main Features:
 - **Tag-Based Classification**: Allows posts to be classified as Documents, News, Events, or Contacts using predefined tags.
@@ -44,11 +58,11 @@ To expose a WordPress post as a **Document** using the BRSCHM plugin:
      - **Topics**: Choose relevant topics such as "bioaccumulation" or "mercury."
      - **Chemicals**: Select any chemicals mentioned in the document, like "Dieldrin" or "Mirex."
    - These selected Topics and Chemicals will be saved as custom fields (`_brschm_topics`, `_brschm_chemicals`) and exposed in the OData feed.
-
+![Topics selection pad](https://github.com/brs-conventions-official/RC_wordpress_plugin/blob/main/assets/topics_pad.png)
 3. **Save the Post**:
-   - After selecting the topics and chemicals, save the post. It will be exposed as a **Document** in the OData feed with the relevant custom fields.
-
----
+   - After selecting the topics and chemicals, when closing the pad , the post is saved and releoaded. It will be exposed as a **Document** in the OData feed with the relevant custom fields.
+   - The topics and chemicals selected are visible  in the Post Tags.
+   - If tags are not present in the topivs box, you can manually add it in the Tags box of the post
 
 ### Setting a Post as **News**
 
@@ -208,3 +222,4 @@ This plugin is licensed under the GPLv2 or later license. For more details, visi
 
 
 [def]: assets/plugintool.png
+[def]: assets/topics_pad.png
