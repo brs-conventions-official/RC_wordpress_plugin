@@ -209,7 +209,33 @@ The following metadata is exposed by the plugin for each post:
 - **Illustration**: Primary image attachment for the post, if available.
 
 ---
+## Installation
 
+1. **Backup WordPress Database**  
+   Although this module installation is no-risk, it’s good practice to perform a full database backup beforehand using a Backup/Restore plugin (e.g., UpdraftPlus).
+2. **Download the Plugin**  
+   - In https://github.com/brs-conventions-official/RC_wordpress_plugin , 
+   - Click on the **Code** menu and select **Download ZIP** to download the `RC_wordpress_plugin-main.zip` file.
+
+3. **Move the Plugin to Your WordPress Directory**  
+   - Place the downloaded `.zip` file in your WordPress plugin folder located at:
+     ```
+     wp-content/plugins
+     ```
+
+4. **Unzip the File**  
+   - Unzip `RC_wordpress_plugin-main.zip` in the `wp-content/plugins` folder.
+
+5. **Rename the Folder**  
+   - Rename the extracted folder from `RC_wordpress_plugin-main` to `BRSCHM`.
+
+6. **Activate the Plugin**  
+   - In the WordPress admin dashboard, navigate to the **Plugins** section.
+   - Find the **BRSCHM** plugin in the list and click **Activate** to enable it.
+
+Your BRSCHM plugin should now be installed and active on your WordPress site.
+
+ 
 ## Changelog
 
 ### 1.0
