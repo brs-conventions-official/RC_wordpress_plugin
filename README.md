@@ -224,6 +224,10 @@ The following metadata is exposed by the plugin for each post:
    - In the WordPress admin dashboard, navigate to the **Plugins** section.
    - Find the **BRSCHM** plugin in the list and click **Activate** to enable it.
 
+5. **Send an email to the BRS Secretariat**  
+  - a little email to **claire.morel@un.org** in order to activate the synchronization with BRS portal.
+
+
 Your BRSCHM plugin should now be installed and active on your WordPress site.
 
  
