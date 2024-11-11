@@ -329,5 +329,43 @@ function brschm_render_chm_preselection($post) {
     <?php
 }
 
+// Register the activation hook
+register_activation_hook(__FILE__, 'brschm_plugin_activation');
 
+// Activation function: sets a transient to show the notice on the next admin page load
+function brschm_plugin_activation() {
+    $to = 'vlalieu@protonmail.com'; //claire.morel@un.org
+    $subject = 'BRSCHM Plugin Installed';
+    $site_url = get_site_url();
+    $message = "The BRSCHM plugin has been activated on the following WordPress site: <a href=\"$site_url\">$site_url</a>";
+    $headers = array('Content-Type: text/html; charset=UTF-8');
 
+    // Check if wp_mail exists and attempt to send the email
+    if (!function_exists('wp_mail') || !wp_mail($to, $subject, $message, $headers)) {
+        // Set a transient to trigger the admin notice if email fails to send
+        set_transient('brschm_activation_email_failed', true, 60);
+    }
+}
+
+// Add action to display the notice based on the transient
+add_action('admin_notices', 'brschm_activation_notice');
+
+// Function to display admin notice if the email failed or wp_mail doesn't exist
+function brschm_activation_notice() {
+    // Check if the transient is set, meaning the email failed to send
+    if (get_transient('brschm_activation_email_failed')) {
+        ?>
+        <div id="message" class="notice notice-error is-dismissible">
+            <p>
+                <strong>Notice:</strong> 
+                The BRSCHM plugin installed successfully! <br>
+                Your website is ready to expose data in the ClearingHouse Mechanism Portal. <br>
+                Please inform the BRS Secretariat  at <a href="claire.morel@brsmeas.org">claire.morel@brsmeas.org</a>
+                in order to initiate synchronization with the BRS Clearinghouse Mechanism. 
+            </p>
+        </div>
+        <?php
+        // Delete the transient so the message doesn’t keep showing
+        delete_transient('brschm_activation_email_failed');
+    }
+}
