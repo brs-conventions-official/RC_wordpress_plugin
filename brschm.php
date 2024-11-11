@@ -360,7 +360,7 @@ function brschm_activation_notice() {
                 <strong>Notice:</strong> 
                 The BRSCHM plugin installed successfully! <br>
                 Your website is ready to expose data in the ClearingHouse Mechanism Portal. <br>
-                Please inform the BRS Secretariat  at <a href="claire.morel@brsmeas.org">claire.morel@brsmeas.org</a>
+                Please inform the BRS Secretariat  at <a href="claire.morel@un.org">claire.morel@un.org</a>
                 in order to activate the synchronization with the BRS Clearinghouse Mechanism portal. 
             </p>
         </div>
