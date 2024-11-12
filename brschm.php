@@ -1,9 +1,10 @@
 <?php
 /**
  * Plugin Name: BRSCHM
- * Description: Adds predefined tags for CHM, Documents, Topics, and Chemicals to posts, with popups for selection.
- * Version: 3.4
- * Author: BRS Secretariat 
+ * Description: The BRSCHM plugin enables Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers on 
+ * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
+ * Version: 1
+ * Author: BRS Secretariat , contacts:claire.morel@un.org , vincent@lalieu.org
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -334,7 +335,7 @@ register_activation_hook(__FILE__, 'brschm_plugin_activation');
 
 // Activation function: sets a transient to show the notice on the next admin page load
 function brschm_plugin_activation() {
-    $to = 'vlalieu@protonmail.com'; //claire.morel@un.org
+    $to = 'claire.morel@un.org'; 
     $subject = 'BRSCHM Plugin Installed';
     $site_url = get_site_url();
     $message = "The BRSCHM plugin has been activated on the following WordPress site: <a href=\"$site_url\">$site_url</a>";
