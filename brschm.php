@@ -3,7 +3,7 @@
  * Plugin Name: BRSCHM
  * Description: The BRSCHM plugin enables Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers on 
  * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
- * Version: 1
+ * Version: 1.0
  * Author: BRS Secretariat , contacts:claire.morel@un.org , vincent@lalieu.org
  */
 
