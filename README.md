@@ -1,4 +1,4 @@
-# BRSCHM Plugin for Basel, Rotterdam, and Stockholm Conventions
+# BRSCHM
 
 **Contributors**: BRS Secretariat  
 **Tags**: CHM, OData, Events, Documents, News, Contacts  
