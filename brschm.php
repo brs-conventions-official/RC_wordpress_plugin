@@ -5,6 +5,7 @@
  * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
  * Version: 1.0
  * Author: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent@lalieu.com 
+ * License: GPLv2 or later
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
