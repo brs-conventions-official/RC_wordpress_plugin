@@ -10,13 +10,13 @@
 **License URI**: https://www.gnu.org/licenses/gpl-2.0.html  
 **GitHub Repository**: https://github.com/brs-conventions-official/RC_wordpress_plugin  
 **Plugin URI**: https://brschm.astarte.io/  
-**Author**: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent.lalieu@un.org 
+**Author**: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent@lalieu.com 
 **Version**: 1.0
 
 ## Description
 
 The **BRSCHM plugin** is designed for Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers using WordPress. It allows centers to selectively share posts as **Documents**, **News**, **Events**, or **Contacts** with the Central Clearing House Mechanism (CHM) Regional Center Portal at the BRS Secretariat.
-
+**Short introduction Video:**  https://www.youtube.com/watch?v=OcJu-RagdkA
 ### Key Features
 
 - **Selective Content Sharing**: Posts can be categorized as **Documents**, **News**, **Events**, or **Contacts**. This classification allows for relevant information to be easily shared with the CHM Portal.
