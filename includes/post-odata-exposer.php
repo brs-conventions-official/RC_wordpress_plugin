@@ -25,6 +25,7 @@ function odata_get_metadata_v4() {
     $metadata .= '        <Property Name="Attachments" Type="Collection(WordPress.Attachment)" Nullable="true" />' . "\n";
     $metadata .= '        <Property Name="CustomFields" Type="Collection(WordPress.CustomField)" Nullable="true" />' . "\n";
     $metadata .= '        <Property Name="Modified" Type="Edm.DateTime" Nullable="true" />' . "\n"; // Added Modified property
+    $metadata .= '        <Property Name="Weblink" Type="Edm.String" Nullable="true" />' . "\n";
     $metadata .= '        <Property Name="Illustration" Type="WordPress.Attachment" Nullable="true" />' . "\n"; // Illustration image if available
     $metadata .= '      </EntityType>' . "\n";
 
@@ -135,6 +136,10 @@ function odata_get_posts_v4() {
         if (!is_array($tags)) {
             $tags = []; // Initialize as empty array if not an array
         }
+        
+        // Store the permalink as the weblink
+        $weblink = get_permalink($post->ID);
+
 
         $attachments_data = [];
         $illustration_url = null; // Reset illustration 
@@ -260,6 +265,7 @@ function odata_get_posts_v4() {
                 'Attachments' => $attachments_data,       // Include both attached and embedded attachments
                 'Modified'    => $modified_date,          // Include modification date
                 'CustomFields' => $filtered_custom_fields, // Include custom fields (event metabox, etc.)
+                'Weblink'   => $weblink,   //store the url to the original web page
                 'Illustration' => ($illustration_url) ? array('file_url' => $illustration_url, 'name' => $illustration_name) : null // Expose illustration image if available
             ];
         }
