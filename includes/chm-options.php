@@ -4,10 +4,10 @@ function brschm_display_chm_options($post_id) {
     echo '<div id="chm-options">';
     
     // Radio button style options
-    echo '<label><input type="radio" name="chm-options" id="documents" class="chm-radio" value="documents"> Documents</label>';
-    echo '<label><input type="radio" name="chm-options" id="events" class="chm-radio" value="events"> Events</label>';
-    echo '<label><input type="radio" name="chm-options" id="news" class="chm-radio" value="news"> News</label>';
-    echo '<label><input type="radio" name="chm-options" id="contacts" class="chm-radio" value="contacts"> Contacts</label>';
+    echo '<label class="chm-options-label"><input type="radio" name="chm-options" id="documents" class="chm-radio" value="documents"> Documents</label>';
+    echo '<label class="chm-options-label"><input type="radio" name="chm-options" id="events" class="chm-radio" value="events"> Events</label>';
+    echo '<label class="chm-options-label"><input type="radio" name="chm-options" id="news" class="chm-radio" value="news"> News</label>';
+    echo '<label class="chm-options-label"><input type="radio" name="chm-options" id="contacts" class="chm-radio" value="contacts"> Contacts</label>';
     
     // Hidden buttons for Topics and Chemicals, shown only when "Documents" is selected
     echo '<div id="documents-options" style="display: none; margin-top: 10px;">';
