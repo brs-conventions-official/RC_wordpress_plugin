@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Function to display event fields in the post editor
 function display_event_fields($post) {
+    if (isset($post->ID)  && get_post_type($post->ID) === 'post' && has_tag('event', $post->ID)) {
     $fields = [
         'event_name' => 'Event Name',
         'event_description' => 'Description',
@@ -31,6 +32,7 @@ function display_event_fields($post) {
             echo "<input type='text' id='{$key}' name='{$key}' value='{$value}'><br>";
         }
     }
+}
 }
 
 

@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const eventRadio = document.getElementById('chm-event-radio');
-    const selectedOption = document.querySelector('input[name="chm-options"]:checked').value;
+    const selectedOptionElement = document.querySelector('input[name="chm-options"]:checked');
+    let selectedOption = 'none';
+    if (selectedOptionElement) {
+        selectedOption = selectedOptionElement.value;
+    } 
+
     const eventMetaBox = document.getElementById('brschm_event_meta_box');
 
 

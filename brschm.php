@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BRSCHM
+ * Plugin Name: BRSCHMDEV
  * Description: The BRSCHM plugin enables Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers on 
  * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
  * Version: 1.0
@@ -18,6 +18,12 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/post-odata-exposer.php';
 
 // Include attachments special field for language
 require_once plugin_dir_path( __FILE__ ) . 'includes/attachments.php';
+
+// Include functions for exposing media in odata
+//unset //vl241211
+//require_once plugin_dir_path(__FILE__) . 'includes/media.php';
+//require_once plugin_dir_path(__FILE__) . 'includes/exposemedia.php';
+
 
 // Register routes for OData version 4
 function odata_register_routes() {

@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to handle the CHM option selection
     function toggleContactFields() {
-        const selectedOption = document.querySelector('input[name="chm-options"]:checked').value;
+        const selectedOptionElement = document.querySelector('input[name="chm-options"]:checked');
+        let selectedOption = 'none';
+        if (selectedOptionElement) {
+            selectedOption = selectedOptionElement.value;
+        } 
 
         // Hide the contact meta box by default
         if (contactMetaBox) {

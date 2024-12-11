@@ -1,14 +1,16 @@
 <?php
 // Register the meta box for Contacts
 function brschm_register_contact_meta_box() {
-    add_meta_box(
-        'brschm_contact_meta_box', // Meta box ID
-        'Contact Details',         // Title of the meta box
-        'brschm_render_contact_meta_box',  // Callback function to display the content
-        'post',                    // Post type
-        'normal',                  // Context (normal, side, etc.)
-        'high'                     // Priority
-    );
+    if (isset($post->ID) && get_post_type($post->ID) === 'post' && has_tag('contact', $post->ID))  {
+                add_meta_box(
+                    'brschm_contact_meta_box', // Meta box ID
+                    'Contact Details',         // Title of the meta box
+                    'brschm_render_contact_meta_box',  // Callback function to display the content
+                    'post',                    // Post type
+                    'normal',                  // Context (normal, side, etc.)
+                    'high'                     // Priority
+                );
+            }
 }
 add_action('add_meta_boxes', 'brschm_register_contact_meta_box');
 

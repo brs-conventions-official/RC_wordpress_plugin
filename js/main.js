@@ -297,9 +297,11 @@ function handleCHMSelection() {
                 // Call the function to pre-select the radio button if the post already has a tag assigned
                 preSelectCHMOption();
             } else {
-                chmOptions.style.display = 'none';
-                chmShareSwitch.checked = false;
-                chmSwitchStatus.textContent = 'OFF';
+                if (chmOptions && chmOptions.style) {
+                    chmOptions.style.display = 'none';
+                    chmShareSwitch.checked = false;
+                    chmSwitchStatus.textContent = 'OFF';
+                }
             }
         }
     

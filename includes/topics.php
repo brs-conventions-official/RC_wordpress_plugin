@@ -11,3 +11,6 @@ $topics = array(
     'waste incineration', 'Waste management', 'waste prevention', 'waste recovery', 'Waste storage',
     'waste treatment'
 );
+
+
+
