@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to handle CHM option selection
-    /*//vl241006 matin
+
     function handleCHMSelection() {
         const selectedOption = document.querySelector('input[name="chm-options"]:checked').value;
         const postId = document.querySelector('input[name="post_ID"]').value;
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-*/
+
 function handleCHMSelection() {
     const selectedOption = document.querySelector('input[name="chm-options"]:checked').value;
     const postId = document.querySelector('input[name="post_ID"]').value;
@@ -148,7 +147,9 @@ function handleCHMSelection() {
     }
 
     // Function to pre-select the radio button based on existing tags
-    function preSelectCHMOption() {
+function preSelectCHMOption() {
+    const postType = document.querySelector('input[name="post_type"]').value; // Assume `post_type` is available
+    if (postType === 'post') {
         const preselectedTagInput = document.querySelector('input[name="chm_option_preselected_tag"]');
         if (preselectedTagInput) {
             const existingTag = preselectedTagInput.value;
@@ -158,22 +159,27 @@ function handleCHMSelection() {
                 const optionToSelect = document.getElementById(existingTag);
                 if (optionToSelect) {
                     optionToSelect.checked = true;
-                    updateCHMUI(existingTag);  // Update UI without reloading
+                    updateCHMUI(existingTag); // Update UI without reloading
                 }
             }
         }
     }
+}
 
-    // Global function to open modal
-    window.openModal = function(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'block';
-        }
-    };
 
-    // Global function to close modal and save tags
-    window.closeModal = function(modalId) {
+    // Global function to open modals for posts
+window.openModal = function(modalId, context = 'post') {
+    const modal = document.getElementById(modalId);
+    if (modal && context === 'media') {
+        modal.classList.add('media-context'); // Add a class to differentiate behavior
+    }
+    if (modal) {
+        modal.style.display = 'block';
+    }
+};
+
+    // Global function to close modal and save tags for posts
+    window.closeModal = function(modalId, context = 'post') {
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.style.display = 'none';

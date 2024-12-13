@@ -1,4 +1,5 @@
 <?php
+global $chemicals;
 $chemicals = array(
     'Aldrin', 'Chlordane', 'DDT', 'Dieldrin', 'Endrin', 'Heptachlor', 'Mirex', 'Toxaphene',
     'Polychlorinated Biphenyls (PCBs)', 'Hexachlorobenzene (HCB)', 'Dioxins', 'Furans',

@@ -1,4 +1,5 @@
 <?php
+global $topics;
 $topics = array(
     'alternative substance', 'bioaccumulation', 'biocide', 'biodegradation', 'by-product',
     'candidate chemical', 'chemical engineering', 'Chemicals', 'co-processing', 'detergent',

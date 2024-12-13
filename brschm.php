@@ -20,9 +20,9 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/post-odata-exposer.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/attachments.php';
 
 // Include functions for exposing media in odata
-//unset //vl241211
-//require_once plugin_dir_path(__FILE__) . 'includes/media.php';
-//require_once plugin_dir_path(__FILE__) . 'includes/exposemedia.php';
+//unset //vl241212
+require_once plugin_dir_path(__FILE__) . 'includes/media.php';
+require_once plugin_dir_path(__FILE__) . 'includes/exposemedia.php';
 
 
 // Register routes for OData version 4
@@ -175,7 +175,7 @@ function brschm_enqueue_scripts($hook_suffix) {
         wp_enqueue_style( 'brschm-style', plugins_url( 'css/styles.css', __FILE__ ) );
         
         wp_enqueue_script( 'brschm-main-script', plugins_url( 'js/main.js', __FILE__ ), array('jquery'), null, true );
-        wp_enqueue_script( 'brschm-events-script', plugins_url( 'js/events.js', __FILE__ ), array('jquery'), null, true );
+         wp_enqueue_script( 'brschm-events-script', plugins_url( 'js/events.js', __FILE__ ), array('jquery'), null, true );
         wp_enqueue_style('brschm-event-style', plugins_url('css/events.css', __FILE__));
         wp_enqueue_script( 'brschm-contact-script', plugins_url( 'js/contacts.js', __FILE__ ), array('jquery'), null, true );
         wp_enqueue_style('brschm-contact-style', plugins_url('css/contacts.css', __FILE__));
@@ -193,6 +193,8 @@ function brschm_enqueue_scripts($hook_suffix) {
     }
 }
 add_action( 'admin_enqueue_scripts', 'brschm_enqueue_scripts' );
+
+
 
 
 // Handle AJAX request to save topics and chemicals and assign them as tags

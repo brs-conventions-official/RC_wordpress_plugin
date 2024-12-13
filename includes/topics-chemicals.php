@@ -53,3 +53,35 @@ function brschm_show_documents_options($post_id) {
 
     echo '</div></div></div>';
 }
+
+// select topivs and chemicals for the media
+/*
+function brschm_render_media_modals() {
+    include_once plugin_dir_path(__FILE__) . 'topics.php';
+    include_once plugin_dir_path(__FILE__) . 'chemicals.php';
+
+    // Topics Modal
+    echo '<div id="topics-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(\'topics-modal\')">&times;</span>
+            <h3>Select Topics</h3>
+            <div class="topics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px;">';
+    foreach ($topics as $topic) {
+        echo '<label><input type="checkbox" name="media_topics[]" value="' . esc_attr($topic) . '"> ' . esc_html($topic) . '</label>';
+    }
+    echo '</div></div></div>';
+
+    // Chemicals Modal
+    echo '<div id="chemicals-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(\'chemicals-modal\')">&times;</span>
+            <h3>Select Chemicals</h3>
+            <div class="topics-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">';
+    foreach ($chemicals as $chemical) {
+        echo '<label><input type="checkbox" name="media_chemicals[]" value="' . esc_attr($chemical) . '"> ' . esc_html($chemical) . '</label>';
+    }
+    echo '</div></div></div>';
+}
+add_action('admin_footer', 'brschm_render_media_modals');
+*/
+

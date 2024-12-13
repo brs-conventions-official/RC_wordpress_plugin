@@ -1,0 +1,24 @@
+/* Placeholder CSS for CHM Admin Styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    padding: 20px;
+    display: none;
+}
+
+.modal-content {
+    margin: 0;
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    margin-top: -10px;
+    margin-right: -10px;
+}
