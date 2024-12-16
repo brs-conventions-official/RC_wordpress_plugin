@@ -120,7 +120,7 @@ Your BRSCHM plugin should now be installed and active on your WordPress site.
 
 ## Changelog
 
-### 1.0
+### 1.2
 - Initial release with OData v4 support for exposing posts, custom fields, and media attachments.
 - Added support for tagging and exposing media files directly with topics and chemicals.
 

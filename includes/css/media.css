@@ -1,32 +1,140 @@
-/* Placeholder CSS for CHM Admin Styles */
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    border: 1px solid #ccc;
-    z-index: 9999; /* Set a high z-index */
-    padding: 20px;
+/* Modal Wrapper */
+.brschm_modal {
     display: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.modal-overlay {
     position: fixed;
-    top: 0;
+    z-index: 1050; /* Ensure it appears above other elements */
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9998; /* Slightly lower than the modal */
-    display: none;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
 }
 
-.close {
-    cursor: pointer;
+/* Modal Content */
+.brschm_modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 800px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    animation: brschm_modal-fade-in 0.3s ease-in-out;
+}
+
+/* Modal Close Button */
+.brschm_modal-close {
+    color: #333;
     float: right;
-    font-size: 20px;
-    margin-top: -10px;
-    margin-right: -10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.brschm_modal-close:hover,
+.brschm_modal-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Modal Title */
+.brschm_modal-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #0073aa;
+    text-align: center;
+}
+
+/* Modal Grid for Topics and Chemicals */
+.brschm_modal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.brschm_modal-grid label {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.brschm_modal-grid label:hover {
+    background-color: #eef6fc;
+}
+
+.brschm_modal-grid input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Modal Save Button */
+.brschm_modal-save {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.brschm_modal-save:hover {
+    background-color: #005885;
+}
+
+/* Fade-in Animation for Modal */
+@keyframes brschm_modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.brschm_frame {
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.brschm_logo {
+    width: 36px;
+    height: auto;
+}
+.brschm_logo_box {
+    padding: 12px;
+}
+.brschm_options {
+    margin-top: 4px;
+}
+
+.brschm_twocols {
+    display: flex;
+    padding-right:16px;
+  flex-direction: row;
+  flex-basis: 100%;
+  flex: 1;
+    margin-bottom: 15px;
+}
+
+.brschm_button_group {
+    margin-bottom: 15px;
+    margin-left: 20px;
 }
