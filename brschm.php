@@ -3,7 +3,7 @@
  * Plugin Name: BRSCHM
  * Description: The BRSCHM plugin enables Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers on 
  * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
- * Version: 1.0
+ * Version: 1.2
  * Author: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent@lalieu.com 
  * License: GPLv2 or later
  */
@@ -319,6 +319,7 @@ add_action('wp_ajax_remove_chm_tag', 'brschm_remove_chm_tag');
 
 //vl240927 Add a hidden field to detect CHM tag on all posts
 // Register the meta box to add the hidden field to all posts
+
 function brschm_add_chm_preselection_meta_box() {
     add_meta_box(
         'brschm_chm_meta_box',   // Meta box ID
