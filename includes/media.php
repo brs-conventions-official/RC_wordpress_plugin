@@ -12,29 +12,29 @@ add_filter('attachment_fields_to_edit', function ($form_fields, $post) {
     ob_start();
     ?>
     <div class="brschm_frame">
-           <div class="brschm_options">
+        <div class="brschm_options">
             <!-- CHM Expose Checkbox -->
             <div class="brschm_twocols">
-                <div class="brschm_logo_box ">
+                <div class="brschm_logo_box">
                     <img src="<?php echo plugin_dir_url(__FILE__) . '../assets/brschm-logo.png'; ?>" alt="BRSCHM Logo" class="brschm_logo">
                 </div>
-                <div class="brschm_logo_box ">
-                    <input type="checkbox" name="attachments[<?php echo $post->ID; ?>][chm_expose]" value="1" 
+                <div class="brschm_logo_box">
+                    <input type="checkbox" name="attachments[<?php echo $post->ID; ?>][chm_expose]" value="1"
                         <?php echo (get_post_meta($post->ID, '_chm_expose', true) ? 'checked="checked"' : ''); ?>>
                     Expose Media to BRS Clearing-House
                 </div>
             </div>
             <div class="brschm_twocols">
-            <!-- Topics Button -->
-            <div class="brschm_button_group">
-                <button type="button" class="button" onclick="openMediaModal('brschm_media-topics-modal')">Select Topics</button>
-            </div>
+                <!-- Topics Button -->
+                <div class="brschm_button_group">
+                    <button type="button" class="button" onclick="openMediaModal('brschm_media-topics-modal')">Select Topics</button>
+                </div>
 
-            <!-- Chemicals Button -->
-            <div class="brschm_button_group">
-                <button type="button" class="button" onclick="openMediaModal('brschm_media-chemicals-modal')">Select Chemicals</button>
+                <!-- Chemicals Button -->
+                <div class="brschm_button_group">
+                    <button type="button" class="button" onclick="openMediaModal('brschm_media-chemicals-modal')">Select Chemicals</button>
+                </div>
             </div>
-            </div> 
         </div>
     </div>
     <?php
@@ -149,6 +149,7 @@ add_action('wp_ajax_save_media_topics_chemicals', function () {
     // Assign tags to the media (attachment).
     wp_set_post_tags($attachment_id, $tags, true);
 
+    // Return a success response.
     wp_send_json_success(['message' => 'Tags saved successfully']);
 });
 

@@ -19,6 +19,7 @@ function brschm_expose_media_odata() {
     foreach ($attachments as $attachment) {
         $topics = get_post_meta($attachment->ID, '_brschm_topics', true);
         $chemicals = get_post_meta($attachment->ID, '_brschm_chemicals', true);
+        $language = get_post_meta($attachment->ID, 'attachment_language', true) ?:'EN';
 
         $result[] = [
             'ID'        => $attachment->ID,
@@ -28,6 +29,7 @@ function brschm_expose_media_odata() {
             'Topics'    => $topics ?: [],
             'Chemicals' => $chemicals ?: [],
             'MimeType'  => $attachment->post_mime_type,
+            'Language' => $language,
         ];
     }
 

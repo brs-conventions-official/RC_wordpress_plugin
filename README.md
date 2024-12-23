@@ -4,7 +4,7 @@
 **Tags**: CHM, OData, Events, Documents, News, Contacts, Media  
 **Requires at least**: 5.6  
 **Tested up to**: 6.6  
-**Stable tag**: 1.2 
+**Stable tag**: 1.3 
 **Requires PHP**: 7.4  
 **License**: GPLv2 or later  
 **License URI**: https://www.gnu.org/licenses/gpl-2.0.html  
@@ -12,7 +12,7 @@
 **Plugin URI**: https://brschm.astarte.io/  
 **Author**: BRS Secretariat, Knowledge Management Team  
 **Contacts**: claire.morel@un.org, vincent@lalieu.com  
-**Version**: 1.2
+**Version**: 1.3
 
 ## Description
 
@@ -76,7 +76,8 @@ The plugin allows Regional Centers to expose media such as PDFs, images, and vid
     "URL": "https://your-site.com/uploads/sample-media.pdf",
     "Topics": ["Bioaccumulation", "Mercury"],
     "Chemicals": ["DDT", "Lead"],
-    "MimeType": "application/pdf"
+    "MimeType": "application/pdf",
+    "Language": "EN"
   }
 ]
 ```

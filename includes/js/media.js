@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById(modalId);
         const overlay = document.getElementById('modal-overlay');
 
-let attachmentId = get_media_id();
-
+        let attachmentId = get_media_id();
 
         if (modal) {
             const mediaFrame = document.querySelector('.media-modal');
@@ -19,7 +18,6 @@ let attachmentId = get_media_id();
             modal.style.zIndex = '160000'; // High z-index to ensure visibility
             modal.classList.add('media-context'); // Add a specific class for media context
             if (overlay) overlay.style.display = 'block';
-
 
             // Load the specific topics and chemicals for the selected media
             jQuery.ajax({
@@ -64,7 +62,7 @@ let attachmentId = get_media_id();
     };
 
     // Save topics and chemicals for media
-    function saveMediaTags() {
+    function saveMediaTags(modalId) {
         let selectedTopics = [];
         let selectedChemicals = [];
 
@@ -92,7 +90,8 @@ let attachmentId = get_media_id();
             success: function(response) {
                 if (response.success) {
                     console.log('Media tags saved successfully.');
-                    window.location.reload(); // Optional: Reload for confirmation
+                    closeMediaModal(modalId); // Close the modal after saving
+                    //alert('Media tags saved successfully!');
                 } else {
                     alert('Failed to save media tags.');
                 }
@@ -104,11 +103,12 @@ let attachmentId = get_media_id();
     }
 
     // Attach event listeners to save buttons in modals
-    const saveButtons = document.querySelectorAll('.media-save-tags');
+    const saveButtons = document.querySelectorAll('.brschm_media-save-tags');
     if (saveButtons) {
         saveButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                saveMediaTags();
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal-id');
+                saveMediaTags(modalId);
             });
         });
     }
@@ -129,7 +129,7 @@ let attachmentId = get_media_id();
 
 });
 
-function get_media_id(){
+function get_media_id() {
     // Extract attachment ID from the URL
     let urlParams = new URLSearchParams(window.location.search);
     let attachmentId = urlParams.get('item'); // `item` contains the attachment ID
