@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // chm share switch toggle
     const chmShareSwitch = document.getElementById('chm-share-toggle');
     const chmSwitchStatus = document.getElementById('chm-switch-status');
+    const postType = document.querySelector('input[name="post_type"]').value;
+    
 
     // Function to toggle CHM options when the logo is clicked
     function toggleCHMOptions() {
@@ -26,7 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleCHMSelection() {
         const selectedOption = document.querySelector('input[name="chm-options"]:checked').value;
         const postId = document.querySelector('input[name="post_ID"]').value;
+        const postType = document.querySelector('input[name="post_type"]').value; 
 
+        // Only proceed if the post type is 'post' or 'news'
+        if (!['post', 'news','publication'].includes(postType)) {
+            return;
+        }
         const tagMap = {
             'documents': 'document',
             'events': 'event',
@@ -148,22 +155,26 @@ function handleCHMSelection() {
 
     // Function to pre-select the radio button based on existing tags
 function preSelectCHMOption() {
-    const postType = document.querySelector('input[name="post_type"]').value; // Assume `post_type` is available
-    if (postType === 'post') {
-        const preselectedTagInput = document.querySelector('input[name="chm_option_preselected_tag"]');
-        if (preselectedTagInput) {
-            const existingTag = preselectedTagInput.value;
+    const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
 
-            // Pre-select the appropriate radio button
-            if (existingTag) {
-                const optionToSelect = document.getElementById(existingTag);
-                if (optionToSelect) {
-                    optionToSelect.checked = true;
-                    updateCHMUI(existingTag); // Update UI without reloading
-                }
+    // Only proceed if the post type is 'post' or 'news'
+    if (!['post', 'news','publication'].includes(postType)) {
+        return;
+    }
+    const preselectedTagInput = document.querySelector('input[name="chm_option_preselected_tag"]');
+    if (preselectedTagInput) {
+        const existingTag = preselectedTagInput.value;
+
+        // Pre-select the appropriate radio button
+        if (existingTag) {
+            const optionToSelect = document.getElementById(existingTag);
+            if (optionToSelect) {
+                optionToSelect.checked = true;
+                updateCHMUI(existingTag); // Update UI without reloading
             }
         }
     }
+    
 }
 
 
@@ -238,6 +249,11 @@ window.openModal = function(modalId, context = 'post') {
     // Ensure that elements exist before adding event listeners
     const radioButtons = document.querySelectorAll('.chm-radio');
 
+    // Only proceed if the post type is 'post' or 'news'
+    if (!['post', 'news','publication'].includes(postType)) {
+        return;
+    }
+    
     if (chmLogo) {
         chmLogo.addEventListener('click', toggleCHMOptions);
     }
@@ -257,6 +273,12 @@ window.openModal = function(modalId, context = 'post') {
         // Function to toggle CHM tag and button highlight
         function toggleCHMTag() {
             const postId = document.querySelector('input[name="post_ID"]').value;
+            const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
+
+            // Only proceed if the post type is 'post' or 'news' or 'publication'
+            if (!['post', 'news','publication'].includes(postType)) {
+                return;
+            }
     
             // Determine if the CHM button is highlighted (tag already exists)
             const isHighlighted = chmLogo.classList.contains('highlight');
@@ -341,7 +363,14 @@ window.openModal = function(modalId, context = 'post') {
     // Function to handle the CHM Share toggle switch
     function toggleCHMShare() {
         const postId = document.querySelector('input[name="post_ID"]').value;
+        const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
         const isChecked = chmShareSwitch.checked;
+
+        // Only proceed if the post type is 'post' or 'news'
+        if (!['post', 'news','publication'].includes(postType)) {
+            return;
+        }
+
 
         jQuery.ajax({
             url: brschm_ajax.ajax_url,

@@ -29,6 +29,23 @@ function odata_get_metadata_v4() {
     $metadata .= '        <Property Name="Illustration" Type="WordPress.Attachment" Nullable="true" />' . "\n"; // Illustration image if available
     $metadata .= '      </EntityType>' . "\n";
 
+    // Define the News entity type (same as Post for now, but can be customized)
+    $metadata .= '      <EntityType Name="News">' . "\n";
+    $metadata .= '        <Key>' . "\n";
+    $metadata .= '          <PropertyRef Name="ID" />' . "\n";
+    $metadata .= '        </Key>' . "\n";
+    $metadata .= '        <Property Name="ID" Type="Edm.Int32" Nullable="false" />' . "\n";
+    $metadata .= '        <Property Name="Title" Type="Edm.String" Nullable="false" />' . "\n";
+    $metadata .= '        <Property Name="Content" Type="Edm.String" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="Tags" Type="Edm.String" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="Category" Type="Edm.String" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="Attachments" Type="Collection(WordPress.Attachment)" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="CustomFields" Type="Collection(WordPress.CustomField)" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="Modified" Type="Edm.DateTime" Nullable="true" />' . "\n"; // Added Modified property
+    $metadata .= '        <Property Name="Weblink" Type="Edm.String" Nullable="true" />' . "\n";
+    $metadata .= '        <Property Name="Illustration" Type="WordPress.Attachment" Nullable="true" />' . "\n"; // Illustration image if available
+    $metadata .= '      </EntityType>' . "\n";
+
     // Define the Attachment entity type
     $metadata .= '      <EntityType Name="Attachment">' . "\n";
     $metadata .= '        <Key>' . "\n";
@@ -48,9 +65,10 @@ function odata_get_metadata_v4() {
     $metadata .= '        <Property Name="value" Type="Edm.String" Nullable="true" />' . "\n";
     $metadata .= '      </EntityType>' . "\n";
 
-    // Define the entity container with the Posts entity set
+    // Define the entity container with the Posts and News entity sets
     $metadata .= '      <EntityContainer Name="WordPressContext" m:IsDefaultEntityContainer="true">' . "\n";
     $metadata .= '        <EntitySet Name="Posts" EntityType="WordPress.Post" />' . "\n";
+    $metadata .= '        <EntitySet Name="News" EntityType="WordPress.News" />' . "\n";
     $metadata .= '        <EntitySet Name="Attachments" EntityType="WordPress.Attachment" />' . "\n";
     $metadata .= '        <EntitySet Name="CustomFields" EntityType="WordPress.CustomField" />' . "\n";
     $metadata .= '      </EntityContainer>' . "\n";
@@ -86,9 +104,9 @@ function odata_get_posts_v4() {
     error_log("ID to filter: " . $id_param);
     error_log("Custom fields to filter: " . print_r($custom_fields_to_filter, true));
 
-    // Build the query arguments
+    // Build the query arguments for  'post' and 'news' and 'publication' post types
     $args = [
-        'post_type' => 'post',
+        'post_type' => ['post', 'news','publication'], // Query both post types
         'posts_per_page' => -1, // Retrieve all posts
         'tag' => 'CHM',  // Only posts with the 'CHM' tag are returned
     ];
@@ -136,10 +154,9 @@ function odata_get_posts_v4() {
         if (!is_array($tags)) {
             $tags = []; // Initialize as empty array if not an array
         }
-        
+
         // Store the permalink as the weblink
         $weblink = get_permalink($post->ID);
-
 
         $attachments_data = [];
         $illustration_url = null; // Reset illustration 

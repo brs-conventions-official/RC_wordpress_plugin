@@ -3,7 +3,7 @@
  * Plugin Name: BRSCHM
  * Description: The BRSCHM plugin enables Basel, Rotterdam, and Stockholm (BRS) Conventions' Regional Centers on 
  * WordPress to selectively share posts as Documents, News, Events, or Contacts with the CHM Portal at the BRS Secretariat..
- * Version: 1.3
+ * Version: 2.0
  * Author: BRS Secretariat , Knowledge Management Team , contacts: claire.morel@un.org, vincent@lalieu.com 
  * License: GPLv2 or later
  */
@@ -56,7 +56,7 @@ function brschm_add_meta_box() {
         'brschm_meta_box',
         'BRS Clearing House',
         'brschm_meta_box_html',
-        'post',
+        array('post', 'news' ,'publication'), //'post', //vl250115
         'side'
     );
 }
@@ -107,6 +107,11 @@ function brschm_save_meta_box_data( $post_id ) {
     if ( ! isset( $_POST['brschm_nonce'] ) || ! wp_verify_nonce( $_POST['brschm_nonce'], 'brschm_save_meta_box_data' ) ) return;
     if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
+    //vl250116 Check if the post type is 'post' or 'news'
+    $post_type = get_post_type( $post_id );
+    if ( ! in_array( $post_type, array( 'post', 'news','publication' ) ) ) {
+        return;
+    }
     // Save topics
     if ( isset( $_POST['brschm_topics'] ) && is_array( $_POST['brschm_topics'] ) ) {
         update_post_meta( $post_id, '_brschm_topics', array_map( 'sanitize_text_field', $_POST['brschm_topics'] ) );
@@ -325,7 +330,7 @@ function brschm_add_chm_preselection_meta_box() {
         'brschm_chm_meta_box',   // Meta box ID
         'CHM Preselection',      // Visible title (for debugging)
         'brschm_render_chm_preselection',  // Callback function to render the hidden field
-        'post',                  // Applies to all post types
+        array('post', 'news','publication'), //'post', //vl250115// 'post',  // Applies to  post types and news
         'side',                  // Context (in the sidebar)
         'low'                    // Low priority
     );

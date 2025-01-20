@@ -4,7 +4,7 @@
 **Tags**: CHM, OData, Events, Documents, News, Contacts, Media  
 **Requires at least**: 5.6  
 **Tested up to**: 6.6  
-**Stable tag**: 1.3 
+**Stable tag**: 2.0 
 **Requires PHP**: 7.4  
 **License**: GPLv2 or later  
 **License URI**: https://www.gnu.org/licenses/gpl-2.0.html  
@@ -12,7 +12,7 @@
 **Plugin URI**: https://brschm.astarte.io/  
 **Author**: BRS Secretariat, Knowledge Management Team  
 **Contacts**: claire.morel@un.org, vincent@lalieu.com  
-**Version**: 1.3
+**Version**: 2.0
 
 ## Description
 
@@ -25,7 +25,7 @@ The **BRSCHM plugin** is designed for Basel, Rotterdam, and Stockholm (BRS) Conv
 
 - **OData v4 Integration**: Posts and media are exposed through **OData v4**, enabling external systems like the CHM Portal to query and display regional center content. Media such as PDFs, images, and videos can also be tagged and shared.
 
-- **Documents**: Posts with official publications, reports, and related materials tagged and categorized with topics and chemicals for easy identification.
+- **Documents**: Posts with official publications, reports, and related materials tagged and categorized with topics and chemicals for easy identification. The plugin is extended to cover special content types derived from Post type usng the plugin Pods.
 
 - **Media Exposure**: Attachments like PDFs, images, and videos can now be exposed directly without associating them with posts. Topics and chemicals can be assigned to media, enabling seamless integration into the CHM Portal.
 
