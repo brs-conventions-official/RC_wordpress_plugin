@@ -104,9 +104,9 @@ function odata_get_posts_v4() {
     error_log("ID to filter: " . $id_param);
     error_log("Custom fields to filter: " . print_r($custom_fields_to_filter, true));
 
-    // Build the query arguments for  'post' and 'news' and 'publication' post types
+    // Build the query arguments for  'post' and 'new' and 'publication' post types
     $args = [
-        'post_type' => ['post', 'news','publication'], // Query both post types
+        'post_type' => ['post', 'new','publication'], // Query both post types
         'posts_per_page' => -1, // Retrieve all posts
         'tag' => 'CHM',  // Only posts with the 'CHM' tag are returned
     ];

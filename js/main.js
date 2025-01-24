@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const postType = document.querySelector('input[name="post_type"]').value; 
 
         // Only proceed if the post type is 'post' or 'news'
-        if (!['post', 'news','publication'].includes(postType)) {
+        if (!['post', 'new','publication'].includes(postType)) {
             return;
         }
         const tagMap = {
@@ -157,8 +157,8 @@ function handleCHMSelection() {
 function preSelectCHMOption() {
     const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
 
-    // Only proceed if the post type is 'post' or 'news'
-    if (!['post', 'news','publication'].includes(postType)) {
+    // Only proceed if the post type is 'post' or 'new'
+    if (!['post', 'new','publication'].includes(postType)) {
         return;
     }
     const preselectedTagInput = document.querySelector('input[name="chm_option_preselected_tag"]');
@@ -249,8 +249,8 @@ window.openModal = function(modalId, context = 'post') {
     // Ensure that elements exist before adding event listeners
     const radioButtons = document.querySelectorAll('.chm-radio');
 
-    // Only proceed if the post type is 'post' or 'news'
-    if (!['post', 'news','publication'].includes(postType)) {
+    // Only proceed if the post type is 'post' or 'new'
+    if (!['post', 'new','publication'].includes(postType)) {
         return;
     }
     
@@ -275,8 +275,8 @@ window.openModal = function(modalId, context = 'post') {
             const postId = document.querySelector('input[name="post_ID"]').value;
             const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
 
-            // Only proceed if the post type is 'post' or 'news' or 'publication'
-            if (!['post', 'news','publication'].includes(postType)) {
+            // Only proceed if the post type is 'post' or 'new' or 'publication'
+            if (!['post', 'new','publication'].includes(postType)) {
                 return;
             }
     
@@ -366,8 +366,8 @@ window.openModal = function(modalId, context = 'post') {
         const postType = document.querySelector('input[name="post_type"]').value; // Get the post type
         const isChecked = chmShareSwitch.checked;
 
-        // Only proceed if the post type is 'post' or 'news'
-        if (!['post', 'news','publication'].includes(postType)) {
+        // Only proceed if the post type is 'post' or 'new'
+        if (!['post', 'new','publication'].includes(postType)) {
             return;
         }
 
