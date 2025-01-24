@@ -29,8 +29,8 @@ function odata_get_metadata_v4() {
     $metadata .= '        <Property Name="Illustration" Type="WordPress.Attachment" Nullable="true" />' . "\n"; // Illustration image if available
     $metadata .= '      </EntityType>' . "\n";
 
-    // Define the News entity type (same as Post for now, but can be customized)
-    $metadata .= '      <EntityType Name="News">' . "\n";
+    // Define the New entity type (same as Post for now, but can be customized)
+    $metadata .= '      <EntityType Name="New">' . "\n";
     $metadata .= '        <Key>' . "\n";
     $metadata .= '          <PropertyRef Name="ID" />' . "\n";
     $metadata .= '        </Key>' . "\n";
@@ -65,10 +65,10 @@ function odata_get_metadata_v4() {
     $metadata .= '        <Property Name="value" Type="Edm.String" Nullable="true" />' . "\n";
     $metadata .= '      </EntityType>' . "\n";
 
-    // Define the entity container with the Posts and News entity sets
+    // Define the entity container with the Posts and New entity sets
     $metadata .= '      <EntityContainer Name="WordPressContext" m:IsDefaultEntityContainer="true">' . "\n";
     $metadata .= '        <EntitySet Name="Posts" EntityType="WordPress.Post" />' . "\n";
-    $metadata .= '        <EntitySet Name="News" EntityType="WordPress.News" />' . "\n";
+    $metadata .= '        <EntitySet Name="New" EntityType="WordPress.New" />' . "\n";
     $metadata .= '        <EntitySet Name="Attachments" EntityType="WordPress.Attachment" />' . "\n";
     $metadata .= '        <EntitySet Name="CustomFields" EntityType="WordPress.CustomField" />' . "\n";
     $metadata .= '      </EntityContainer>' . "\n";
